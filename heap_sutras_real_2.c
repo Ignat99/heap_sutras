@@ -25,7 +25,7 @@ int FixTree(int iFrom,int iTo)
 
 	while(1) {
 		iFromTwice=iFrom*2;
-		if (iFromTwice > iTo) break; 
+		if (iFromTwice > iTo) break;
 		else {
 			elLeft=elA[iFromTwice];
 			if (iFromTwice==iTo) { elRight=elLeft; } else  { elRight=elA[iFromTwice+1]; }
