@@ -25,24 +25,24 @@ TElement  elA[N_MAX]; //{ Source array, tree and result }
 
 int FixTree(int iFrom,int iTo)
 {
-	TElement  elTop,elLeft,elRight;
-	int  iFromTwice;
+    TElement  elTop,elLeft,elRight;
+    int  iFromTwice;
 
-	elTop=elA[iFrom];
+    elTop=elA[iFrom];
 
-	while(1) {
-		iFromTwice=iFrom*2;
-		if (iFromTwice > iTo) break;
-		else {
-			elLeft=elA[iFromTwice];
-			if (iFromTwice==iTo) { elRight=elLeft; } else  { elRight=elA[iFromTwice+1]; }
+    while(1) {
+	iFromTwice=iFrom*2;
+	if (iFromTwice > iTo) break;
+	else {
+	    elLeft=elA[iFromTwice];
+	    if (iFromTwice==iTo) { elRight=elLeft; } else  { elRight=elA[iFromTwice+1]; }
 
-			if ((elRight>elTop) && (elRight>elLeft)) { elA[iFrom]=elRight;  iFrom=iFromTwice+1;  } 
-			else if (elLeft > elTop ) { elA[iFrom]=elLeft;   iFrom=iFromTwice; } 
-			else break; 
-		}
+	    if ((elRight>elTop) && (elRight>elLeft)) { elA[iFrom]=elRight;  iFrom=iFromTwice+1;  } 
+	    else if (elLeft > elTop ) { elA[iFrom]=elLeft;   iFrom=iFromTwice; } 
+	    else break; 
 	}
-	elA[iFrom]=elTop;
+    }
+    elA[iFrom]=elTop;
 }
 
 void main (int argc, char *argv []) 
@@ -57,15 +57,12 @@ void main (int argc, char *argv [])
     elA[++iNum] = atoi(str);
   }
 
-
 // { Build a sorting tree  }
   for ( i= iNum >> 1;i>=1;i--) {
    FixTree(i,iNum);
    printf("* %d %d: ",i,iNum);
    PRINT;
   }
-
-
 
 //  { Display the result    }
   printf("* UnSorted array *\n  ");
