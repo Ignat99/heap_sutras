@@ -10,6 +10,13 @@
 
 #define N_MAX 10
 
+#define \
+    PRINT \
+    ({ \
+        for (j=1; j< iNum; j++) { printf("%d ",elA[j]); } \
+        printf("%d \n",elA[iNum]); \
+    })
+
 typedef int TElement;
 int  iNum=0,i,j;
 TElement  elTemp;
@@ -52,39 +59,32 @@ void main (int argc, char *argv [])
 
 
 // { Build a sorting tree  }
-  for ( i= iNum >> 1;i>=1;i--) {  FixTree(i,iNum);
-
-  printf("* %d %d: ",i,iNum);
-  for (j=1; j < iNum; j++)  { printf("%d ",elA[j]); }
-  printf("%d \n",elA[iNum]);
-
+  for ( i= iNum >> 1;i>=1;i--) {
+   FixTree(i,iNum);
+   printf("* %d %d: ",i,iNum);
+   PRINT;
   }
 
 
 
 //  { Display the result    }
   printf("* UnSorted array *\n  ");
-  for (i=1; i< iNum; i++)  { printf("%d ",elA[i]); }
-  printf("%d \n",elA[iNum]);
-
-
+  PRINT;
 
 // { Convert tree to array }
   for (i=iNum; i>=2; i-- )
   {
-	elTemp=elA[1];
-	elA[1]=elA[i];
-	elA[i]=elTemp;
-	FixTree(1,i-1);
-  printf("* ");
-  for (j=1; j< iNum; j++)  { printf("%d ",elA[j]); }
-  printf("%d \n",elA[iNum]);
+    elTemp=elA[1];
+    elA[1]=elA[i];
+    elA[i]=elTemp;
+    FixTree(1,i-1);
+    printf("* ");
+    PRINT;
   }
 
 //  { Display the result    }
   printf("* Sorted array *\n  ");
-  for (i=1; i< iNum; i++)  { printf("%d ",elA[i]); }
-  printf("%d \n",elA[iNum]);
+  PRINT;
   printf("P.S. Thank you for using our software.\n");
 
 }
