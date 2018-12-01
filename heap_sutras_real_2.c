@@ -29,8 +29,7 @@ int FixTree(int iFrom,int iTo)
     int  iFromTwice;
 
     elTop=elA[iFrom];
-
-    while(1) {
+    for(;;) {
 	iFromTwice=iFrom*2;
 	if (iFromTwice > iTo) break;
 	else {
@@ -45,7 +44,7 @@ int FixTree(int iFrom,int iTo)
     elA[iFrom]=elTop;
 }
 
-void main (int argc, char *argv []) 
+void main (int argc, char *argv [])
 {
   printf("\n");
   printf("Heap.  Array sorting by tree building.\n");
